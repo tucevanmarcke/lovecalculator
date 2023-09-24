@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Calculator</title>
-    <link rel="stylesheet" href="calculatorstyle.css">
+    <link rel="stylesheet" href="calculatorstyle.css">  
 </head>
 <body>
+    <div class="container">
+        <div class="content">
+            <img src="icon.png" alt="">
     <h1>Love Calculator</h1>
-    <p>Enter two names to calculate love compatibility:</p>
-
+    <p>Enter two names to check your love compatibility:</p>
     <input type="text" id="name1" placeholder="Name 1">
     <input type="text" id="name2" placeholder="Name 2">
     <button onclick="calculateLove()">Calculate</button>
-
-    <div id="result"></div>
+    <p id="result"></p>
 
     <script>
         function calculateLove() {
             const name1 = document.getElementById("name1").value.toLowerCase();
             const name2 = document.getElementById("name2").value.toLowerCase();
-            const resultElement = document.getElementById("result");
+            const lovePercentage = calculatePercentage(name1, name2);
 
-            if ((name1 === "kristiyan" && name2 === "tuğçe") || (name1 === "tuğçe" && name2 === "kristiyan")) {
-                resultElement.innerHTML = "DAMN!100% Love Compatibility!True Love <3";
+            const resultElement = document.getElementById("result");
+            if (lovePercentage === 100) {
+                resultElement.textContent = "Congratulations! 100% love compatibility! Absolute True Love <3";
             } else {
-                resultElement.innerHTML = "No Way! WTF Bro?!?!? 0% Love Compatibility. Yuck! Forget about it.";
+                resultElement.textContent = "No Way! WTF bro?!?!? Yuck forget about it. Your love compatibility is " + lovePercentage + "%.";
+            }
+        }
+
+        function calculatePercentage(name1, name2) {
+            const validNames = [
+                "kristiyan", "kris", "krisi", "kriskata", "kristiqn",
+                "tuğçe", "tuce", "tuçe", "tugce", "tughche", "tugche", "tughce", "che", "çe"
+            ];
+
+            if (validNames.includes(name1) && validNames.includes(name2)) {
+                return 100;
+            } else {
+                return 0;
             }
         }
     </script>
 </body>
 </html>
+
