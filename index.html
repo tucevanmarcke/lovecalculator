@@ -22,13 +22,13 @@
     </div>
     <script>
        function calculateLove() {
-            var names = [
+            const names = [
                 "Kristiyan", "Kris", "Krisi", "Kriskata", "Kristiqn",
                 "Tuğçe", "Tuce", "Tuçe", "Tugce", "Tughche", "Tugche", "Tughce", "Che", "Çe"
             ];
 
-            var firstName = document.getElementById("first-name").value.trim();
-            var secondName = document.getElementById("second-name").value.trim();
+            const firstName = document.getElementById("first-name").value.trim();
+            const secondName = document.getElementById("second-name").value.trim();
 
             if (names.includes(firstName) && names.includes(secondName)) {
                 document.getElementById("result").innerHTML = "100% True Love <3";
