@@ -1,41 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Calculator</title>
-    <link rel="stylesheet" href="calculatorstyle.css">
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <img src="icon.png" alt="">
-            <h1>Love Calculator</h1>
-            <div class="inputarea">
-                <input type="text" placeholder="Your Name" id="NameOne" onfocus="this.value = ''">
-                <input type="text" placeholder="Your Lover" id="NameTwo" onfocus="this.value = ''">
-            </div>
-            <a href="#" onclick="calculateLove()">Calculate</a>
-            <p id="print">Your relationship result here</p>
-            <p id="statement"></p>
-        </div>
-    </div>
+     <link rel="stylesheet" href="calculatorstyle.css">
     <script>
-       function calculateLove() {
-            const names = [
-                "Kristiyan", "Kris", "Krisi", "Kriskata", "Kristiqn",
-                "Tuğçe", "Tuce", "Tuçe", "Tugce", "Tughche", "Tugche", "Tughce", "Che", "Çe"
-            ];
+        function calculateLove() {
+            // Get the input names
+            var name1 = document.getElementById("name1").value.toLowerCase();
+            var name2 = document.getElementById("name2").value.toLowerCase();
 
-            const firstName = document.getElementById("first-name").value.trim();
-            const secondName = document.getElementById("second-name").value.trim();
+            // Define the names for which you want to return 100%
+            var perfectNames = ["kristiyan", "kris", "krisi", "kriskata", "kristiqn", "tuğçe", "tuce", "tuçe", "tugce", "tughche", "tugche", "tughce", "che", "çe"];
 
-            if (names.includes(firstName) && names.includes(secondName)) {
-                document.getElementById("result").innerHTML = "100% True Love <3";
+            // Check if both names are in the perfectNames array
+            if (perfectNames.includes(name1) && perfectNames.includes(name2)) {
+                document.getElementById("result").innerHTML = "100% True Love";
             } else {
-                document.getElementById("result").innerHTML = "0% No Way! WTF bro?!?!? Yuck forget about it.";
+                document.getElementById("result").innerHTML = "0% No Way! WTF bro?!? Forget about it. Seriously.";
             }
         }
     </script>
+</head>
+<body>
+    <img src="icon.png" alt="">
+    <h1>Love Calculator</h1>
+    <p>Enter two names to calculate your love compatibility:</p>
+    <input type="text" id="name1" placeholder="Your Name">
+    <input type="text" id="name2" placeholder="Your Lover">
+    <button onclick="calculateLove()">Calculate Love</button>
+    <p>Your relationship result here: <span id="result"></span></p>
 </body>
 </html>
+
