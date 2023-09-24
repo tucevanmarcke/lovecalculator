@@ -15,27 +15,27 @@
                 <input type="text" placeholder="Your Name" id="NameOne" onfocus="this.value = ''">
                 <input type="text" placeholder="Your Lover" id="NameTwo" onfocus="this.value = ''">
             </div>
-            <a href="#" onclick="love()">Calculate</a>
+            <a href="#" onclick="calculateLove()">Calculate</a>
             <p id="print">Your relationship result here</p>
             <p id="statement"></p>
         </div>
     </div>
     <script>
-         function calculateLove() {
-            // Get the names entered by the user
-            var name1 = document.getElementById("name1").value.toLowerCase();
-            var name2 = document.getElementById("name2").value.toLowerCase();
+       function calculateLove() {
+            var names = [
+                "Kristiyan", "Kris", "Krisi", "Kriskata", "Kristiqn",
+                "Tuğçe", "Tuce", "Tuçe", "Tugce", "Tughche", "Tugche", "Tughce", "Che", "Çe"
+            ];
 
-            // Define the names that should give a 100% result
-            var perfectNames = ["kristiyan", "kris", "krisi", "kriskata", "kristiqn", "tuğçe", "tuce", "tuçe", "tugce", "tughche", "tugche", "tughce", "che", "çe"];
+            var firstName = document.getElementById("first-name").value.trim();
+            var secondName = document.getElementById("second-name").value.trim();
 
-            // Check if both names are in the perfectNames array
-            if (perfectNames.includes(name1) && perfectNames.includes(name2)) {
+            if (names.includes(firstName) && names.includes(secondName)) {
                 document.getElementById("result").innerHTML = "100% True Love <3";
             } else {
                 document.getElementById("result").innerHTML = "0% No Way! WTF bro?!?!? Yuck forget about it.";
+            }
         }
-    }
     </script>
 </body>
 </html>
